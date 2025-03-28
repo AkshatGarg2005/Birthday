@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './components/Header';
+import BirthdayCard from './components/BirthdayCard';
+import BirthdayMessage from './components/BirthdayMessage';
+import Footer from './components/Footer';
+import Confetti from './components/Confetti';
+import { Container } from 'react-bootstrap';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Confetti />
+      <Container className="py-5">
+        <Header />
+        <BirthdayCard />
+        <BirthdayMessage />
+        <Footer />
+      </Container>
     </div>
   );
 }

@@ -1,38 +1,65 @@
 .App {
   text-align: center;
+  padding: 20px 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.birthday-heading {
+  animation: float 6s ease-in-out infinite, colorChange 8s infinite;
+  margin-bottom: 2rem;
+  text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes colorChange {
+  0% { color: #ff6b6b; }
+  25% { color: #4ecdc4; }
+  50% { color: #ffbe76; }
+  75% { color: #a29bfe; }
+  100% { color: #ff6b6b; }
+}
+
+.birthday-card {
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.birthday-card:hover {
+  transform: translateY(-10px);
+}
+
+.message-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+@keyframes flicker {
+  0%, 100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1);
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: translateY(-5px) scale(0.95);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.cake-image {
+  max-width: 250px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
-.App-link {
-  color: #61dafb;
+.cake-image .flame {
+  animation: flicker 1.5s infinite alternate;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cake-image .flame:nth-of-type(2) {
+  animation-delay: 0.5s;
+}
+
+.cake-image .flame:nth-of-type(3) {
+  animation-delay: 1s;
 }
