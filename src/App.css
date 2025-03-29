@@ -1,12 +1,15 @@
 .App {
   text-align: center;
   padding: 20px 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .birthday-heading {
   animation: float 6s ease-in-out infinite, colorChange 8s infinite;
   margin-bottom: 2rem;
   text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+  font-weight: 700;
 }
 
 @keyframes colorChange {
@@ -19,19 +22,29 @@
 
 .birthday-card {
   box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
+  border: none;
 }
 
 .birthday-card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .message-text {
   font-size: 1.2rem;
   line-height: 1.8;
   color: #555;
+}
+
+.highlight-text {
+  background: linear-gradient(to right, #ff6b6b, #a29bfe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
 }
 
 @keyframes flicker {
@@ -45,15 +58,46 @@
   }
 }
 
+.cake-container {
+  padding: 2rem;
+  position: relative;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f3e7ff 100%);
+  overflow: hidden;
+}
+
+.cake-container::before,
+.cake-container::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 183, 197, 0.2);
+  z-index: 0;
+}
+
+.cake-container::before {
+  top: -20px;
+  left: -20px;
+}
+
+.cake-container::after {
+  bottom: -20px;
+  right: -20px;
+}
+
 .cake-image {
-  max-width: 250px;
+  max-width: 280px;
   height: auto;
   margin: 0 auto;
   display: block;
+  position: relative;
+  z-index: 1;
 }
 
 .cake-image .flame {
   animation: flicker 1.5s infinite alternate;
+  transform-origin: center bottom;
 }
 
 .cake-image .flame:nth-of-type(2) {
@@ -62,4 +106,69 @@
 
 .cake-image .flame:nth-of-type(3) {
   animation-delay: 1s;
+}
+
+.card-content {
+  padding: 2rem;
+  background: white;
+}
+
+.btn-birthday {
+  background: linear-gradient(to right, #ff6b6b, #a29bfe);
+  border: none;
+  border-radius: 30px;
+  padding: 10px 25px;
+  font-weight: 600;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(162, 155, 254, 0.4);
+}
+
+.btn-birthday:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(162, 155, 254, 0.6);
+}
+
+.decoration {
+  position: absolute;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.decoration-1 {
+  top: 10%;
+  left: 5%;
+  animation: float 8s infinite;
+}
+
+.decoration-2 {
+  bottom: 10%;
+  right: 5%;
+  animation: float 9s infinite 1s;
+}
+
+.decoration-3 {
+  top: 50%;
+  right: 10%;
+  animation: float 7s infinite 0.5s;
+}
+
+.decoration-4 {
+  bottom: 30%;
+  left: 8%;
+  animation: float 10s infinite 1.5s;
+}
+
+@media (max-width: 768px) {
+  .birthday-heading {
+    font-size: 2.5rem;
+  }
+  
+  .card-content {
+    padding: 1.5rem;
+  }
+  
+  .decoration {
+    display: none;
+  }
 }
