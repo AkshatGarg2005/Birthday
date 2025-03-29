@@ -160,6 +160,154 @@
   animation: float 10s infinite 1.5s;
 }
 
+/* Countdown Timer Styles */
+.countdown-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  z-index: 1000;
+}
+
+.countdown-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.countdown-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.countdown-title {
+  font-size: 3.5rem;
+  color: white;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  animation: float 6s ease-in-out infinite;
+}
+
+.countdown-subtitle {
+  font-size: 1.5rem;
+  color: white;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+}
+
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.timer-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0.5rem;
+}
+
+.timer-digit {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.digit-container {
+  background: white;
+  border-radius: 8px;
+  width: 60px;
+  height: 80px;
+  margin: 0 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.digit {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ff6b6b;
+  position: relative;
+}
+
+.timer-separator {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0.5rem;
+  padding-bottom: 2rem;
+}
+
+.timer-label {
+  font-size: 1rem;
+  color: white;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.countdown-message {
+  color: white;
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.balloon-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.balloon {
+  width: 30px;
+  height: 40px;
+  margin: 0 15px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.balloon::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  bottom: -15px;
+  left: 11px;
+}
+
+.balloon-1 {
+  background: #a29bfe;
+  animation: float 6s ease-in-out infinite;
+}
+
+.balloon-2 {
+  background: #ff6b6b;
+  animation: float 7s ease-in-out infinite 0.5s;
+}
+
+.balloon-3 {
+  background: #4ecdc4;
+  animation: float 8s ease-in-out infinite 1s;
+}
+
 @media (max-width: 768px) {
   .birthday-heading {
     font-size: 2.5rem;
@@ -171,5 +319,22 @@
   
   .decoration {
     display: none;
+  }
+  
+  .countdown-title {
+    font-size: 2.5rem;
+  }
+  
+  .digit-container {
+    width: 40px;
+    height: 60px;
+  }
+  
+  .digit {
+    font-size: 2.2rem;
+  }
+  
+  .timer-separator {
+    font-size: 2.2rem;
   }
 }
