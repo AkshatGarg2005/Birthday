@@ -10,6 +10,7 @@
   margin-bottom: 2rem;
   text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
   font-weight: 700;
+  font-size: 4.5rem;
 }
 
 @keyframes colorChange {
